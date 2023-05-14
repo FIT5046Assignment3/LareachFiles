@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_quiz_collection_graph"
+    app:startDestination="@id/quizItemFragment">
+
+    <fragment
+        android:id="@+id/quizDetail"
+        android:name="com.fit.quizcrafter.ui.quizcollection.QuizDetail"
+        android:label="QuizDetail" >
+        <argument
+            android:name="quiz"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_quizDetail_to_nav_quizWelcome_fragment"
+            app:destination="@id/nav_quizWelcome_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizItemFragment"
+        android:name="com.fit.quizcrafter.ui.quizcollection.QuizItemFragment"
+        android:label="fragment_quizitem"
+        tools:layout="@layout/fragment_quizitem" >
+        <action
+            android:id="@+id/action_quizItemFragment_to_quizDetail"
+            app:destination="@id/quizDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_quizEndResultModel"
+        android:name="com.fit.quizcrafter.fragment.QuizEndResultModel"
+        android:label="QuizEndResultModel" />
+    <fragment
+        android:id="@+id/nav_quizMcqModel"
+        android:name="com.fit.quizcrafter.fragment.QuizMcqModel"
+        android:label="QuizMcqModel" >
+        <action
+            android:id="@+id/action_nav_quizMcqModel_to_nav_quizWrittenModel"
+            app:destination="@id/nav_quizWrittenModel" />
+        <action
+            android:id="@+id/action_nav_quizMcqModel_to_nav_quizEndResultModel"
+            app:destination="@id/nav_quizEndResultModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_quizWrittenModel"
+        android:name="com.fit.quizcrafter.fragment.QuizWrittenModel"
+        android:label="QuizWrittenModel" >
+        <action
+            android:id="@+id/action_nav_quizWrittenModel_to_nav_quizMcqModel"
+            app:destination="@id/nav_quizMcqModel" />
+        <action
+            android:id="@+id/action_nav_quizWrittenModel_to_nav_quizEndResultModel"
+            app:destination="@id/nav_quizEndResultModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_quizWelcome_fragment"
+        android:name="com.fit.quizcrafter.fragment.QuizWelcomeFragment"
+        android:label="QuizWelcomeFragment" >
+        <action
+            android:id="@+id/action_nav_quizWelcome_fragment_to_nav_quizWrittenModel"
+            app:destination="@id/nav_quizWrittenModel" />
+        <action
+            android:id="@+id/action_nav_quizWelcome_fragment_to_nav_quizMcqModel"
+            app:destination="@id/nav_quizMcqModel" />
+        <action
+            android:id="@+id/action_nav_quizWelcome_fragment_self"
+            app:destination="@id/nav_quizWelcome_fragment" />
+        <action
+            android:id="@+id/action_nav_quizWelcome_fragment_to_quizItemFragment"
+            app:destination="@id/quizItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.fit.quizcrafter.ui.home.HomeFragment"
+        android:label="HomeFragment" />
+</navigation>

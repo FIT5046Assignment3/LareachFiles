@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/CreateAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Create Account"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:id="@+id/AccountName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account Name"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/enterAccountname"
+        android:shape = "rectangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_for_createacc"
+        android:hint = "Enter your Account Name"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/BlanklineOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+
+    <TextView
+    android:id="@+id/DateOfBirth"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Date of Birth"
+    android:textSize="20sp" />
+
+
+    <EditText
+        android:id="@+id/datePicker"
+        android:drawableRight="@mipmap/ic_launcher_calendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_for_createacc"
+        android:editable="false"/>
+
+    <TextView
+        android:id="@+id/BlanklineTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+
+    <TextView
+        android:id = "@+id/Gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender"
+        android:textSize="20sp"/>
+
+
+    <Spinner
+        android:id = "@+id/genderspinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="350dp"/>
+
+    <TextView
+        android:id="@+id/BlanklineThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
+        android:id = "@+id/Address1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address1"
+        android:textSize="20sp"/>
+
+
+    <EditText
+        android:id="@+id/AddressOne"
+        android:shape = "rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_for_createacc"
+        android:inputType="text" />
+
+    <TextView
+        android:id = "@+id/Address2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address2"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/AddressTwo"
+        android:shape = "rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_for_createacc"
+        android:hint = "Optional"
+        android:inputType="text" />
+
+    <TextView
+        android:id = "@+id/City"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="City"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/Cityinput"
+        android:shape = "rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_for_createacc"
+        android:inputType="text" />
+
+    <TextView
+        android:id = "@+id/state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="State"
+        android:textSize="20sp"/>
+
+    <Spinner
+        android:id="@+id/statespinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="350dp" />
+
+    <TextView
+        android:id = "@+id/zip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zip"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/zipinput"
+        android:shape = "rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_for_createacc"
+        android:inputType="text" />
+
+
+    <TextView
+        android:id = "@+id/country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Country"
+        android:textSize="20sp"/>
+
+
+    <EditText
+        android:id="@+id/countryinput"
+        android:shape = "rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_for_createacc"
+        android:inputType="text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+
+
+    <Button
+        android:id="@+id/SignUP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign up"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+    <TextView
+        android:id="@+id/haveacc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Already have an account?"/>
+
+        <TextView
+            android:id = "@+id/gotologintu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="login" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+    <TextView android:id="@+id/Account"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:gravity="center"
+    android:text="Account Profile"
+        android:textSize="50sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imageViewForProfile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/avatar" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+    <TextView
+        android:id="@+id/AccountName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Account Name"
+        android:textSize="50sp"/>
+
+        <TextView
+            android:id="@+id/inputAccountName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="50sp"/>
+
+        <TextView
+            android:id="@+id/emptyTextTwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text = ""/>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+    <Button
+        android:id="@+id/changePasswordAndUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="change your password and your account name"/>
+
+            <TextView
+                android:id="@+id/emptyText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text = ""/>
+
+            <Button
+                android:id="@+id/mapbutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="show my location" />
+
+
+
+        </LinearLayout>
+
+    <TextView
+        android:id="@+id/emptyTextOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text = ""/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+        <Button
+            android:id="@+id/ClickBackToHomePage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back to home Page。"
+            android:layout_gravity="bottom" />
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+</LinearLayout>

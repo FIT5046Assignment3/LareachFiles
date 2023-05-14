@@ -1,0 +1,95 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+//    for Safe Args
+    id 'androidx.navigation.safeargs'
+//for google map
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+}
+
+android {
+    namespace 'com.fit.quizcrafter'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.fit.quizcrafter"
+        minSdk 23
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+//    viewmodel and liveData
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+
+//Room
+    implementation 'androidx.room:room-runtime:2.5.0'
+    annotationProcessor 'androidx.room:room-compiler:2.5.0'
+
+//    nav
+    implementation 'androidx.navigation:navigation-fragment:2.5.3'
+    implementation 'androidx.navigation:navigation-ui:2.5.3'
+    String nav_version = "2.5.3"
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+    // Feature module Support
+    implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
+    // Testing Navigation
+    androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
+    // Jetpack Compose Integration
+    implementation("androidx.navigation:navigation-compose:$nav_version")
+
+
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+
+    //    volley
+    implementation 'com.android.volley:volley:1.2.1'
+//    gson
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation 'com.google.code.gson:gson:2.9.0'
+
+//    retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+// firebase
+    implementation platform('com.google.firebase:firebase-bom:32.0.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-database'
+//    firebase auth
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.firebaseui:firebase-ui-auth:8.0.1'
+
+
+//    google map
+    implementation 'com.google.maps.android:maps-utils-ktx:3.4.0'
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+}

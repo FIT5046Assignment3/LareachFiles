@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView
+        android:id = "@+id/Signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="sign up"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id = "@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Email"
+        android:textSize="0sp" />
+
+    <EditText
+        android:id = "@+id/emailinput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_for_createacc"
+        android:hint = "Enter your email address"
+        android:inputType="textEmailAddress"/>
+
+
+    <TextView
+        android:id = "@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="password"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id = "@+id/passwordinput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_for_createacc"
+        android:hint = "Enter your password"
+        android:inputType="textPassword"/>
+
+    <TextView
+        android:id = "@+id/confirmpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Confirm Password"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/conirmpasswordinput"
+        android:shape = "rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_for_createacc"
+        android:hint = "Re-Enter your password"
+        android:inputType="textPassword" />
+</LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <Button
+        android:id ="@+id/continueButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Continue"/>
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+    <TextView
+        android:id = "@+id/haveaccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account?"
+        android:textSize="20sp"
+        android:layout_weight="0.5"/>
+
+
+    <TextView
+        android:id = "@+id/gotologin"
+        android:clickable = "true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="login"
+        android:textSize="20sp"
+        android:layout_weight="0.5"/>
+    </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>

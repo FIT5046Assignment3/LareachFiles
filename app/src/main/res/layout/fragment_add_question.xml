@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="64dp"-->
+<!--        android:background="#FFFFBB33"-->
+<!--        android:gravity="center"-->
+<!--        android:scaleType="center"-->
+<!--        android:text="Android App"-->
+<!--        android:textColor="@android:color/white" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/id_txt_username"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="4dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginRight="4dp"-->
+<!--        android:layout_marginBottom="4dp"-->
+<!--        android:hint="input username"-->
+<!--        android:inputType="textEmailAddress" />-->
+
+
+    <EditText
+        android:id="@+id/QuestioneditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Question "
+/>
+    <EditText
+        android:id="@+id/OptioneditText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="A"
+/>
+    <EditText
+        android:id="@+id/OptioneditText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="B"
+ />
+    <EditText
+        android:id="@+id/OptioneditText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="C"
+ />
+    <EditText
+        android:id="@+id/OptioneditText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="D"
+/>
+    <EditText
+        android:id="@+id/OptioneditText5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="E"
+/>
+    <EditText
+        android:id="@+id/AnswereditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Answer"
+        />
+    <CheckBox
+        android:id="@+id/mulcheckBox"
+        android:layout_width="134dp"
+        android:layout_height="43dp"
+        android:text="@string/quiz_checkbok"
+
+        />
+
+</LinearLayout>

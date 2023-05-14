@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/quiz_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="quiz Title"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/quiz_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Description"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/addQuestionbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        />
+    <Button
+        android:id="@+id/Addquizbtn"
+        android:layout_width="370dp"
+        android:layout_height="48dp"
+        android:text="Finish"
+        />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/recycle_questionList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.fit.quizcrafter.ui.createquiz.recyclelist.QuestionListFragment"
+        tools:layout="@layout/fragment_question_list">
+    </androidx.fragment.app.FragmentContainerView>
+
+
+</LinearLayout >

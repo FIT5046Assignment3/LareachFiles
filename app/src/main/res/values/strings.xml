@@ -1,0 +1,50 @@
+<resources>
+<!--    login -->
+    <string name="app_name">
+       <font color="#4169E1">quiz crafters</font>
+    </string>
+
+
+    <string-array name="genderarray">
+        <item>Male</item>
+        <item>Female</item>
+        <item>unknown</item>
+        <item>other</item>
+    </string-array>
+
+    <string-array name="statearray">
+        <item>NSW</item>
+        <item>VIC</item>
+        <item>QLD</item>
+        <item>WA</item>
+        <item>SA</item>
+        <item>TAS</item>
+
+    </string-array>
+
+<!--    -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="nav_header_title">User Name</string>
+    <string name="nav_header_subtitle">User Email</string>
+
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_collectionquiz">Quiz Collection</string>
+    <string name="menu_createquiz">Create quiz</string>
+    <string name="menu_map">Check my map</string>
+    <string name="menu_logout">Logout</string>
+
+    <string name="quiz_checkbok">multiple</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+<!--    user info-->
+    <string name="user_id">user_id</string>
+
+</resources>

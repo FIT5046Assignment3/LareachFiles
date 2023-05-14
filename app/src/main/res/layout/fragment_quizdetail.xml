@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/quizDetail_title"
+        android:height="40dp"
+        android:textSize="20dp"
+    android:text="title"/>
+
+    <Button
+        android:id="@+id/launchQuizWelcomeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/quizDetail_desciption"
+        android:height="20dp"
+        android:text="des"/>
+
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/recycle_questionList1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.fit.quizcrafter.ui.createquiz.recyclelist.QuestionListFragment"
+        android:layout_weight="2"
+        tools:layout="@layout/fragment_question_list">
+    </androidx.fragment.app.FragmentContainerView>
+
+</LinearLayout >
+
+
