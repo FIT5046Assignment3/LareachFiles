@@ -212,10 +212,11 @@ public class SignupMoreDetails extends AppCompatActivity {
 
 
                                 Toast.makeText(SignupMoreDetails.this, "Sign up successful, both email and address are uploaded to realtime database and authentication" , Toast.LENGTH_SHORT).show();
-
+                                System.out.println("XXXXXXXXXXXXX - sup bro - XXXXXXXXXXXXXXXXX");
                                 Intent intentforHomeScreen = new Intent(SignupMoreDetails.this, MainActivity.class);
                                 intentforHomeScreen.putExtra("AccountName",account_name);
                                 startActivity(intentforHomeScreen);
+                                System.out.println("XXXXXXXXXXXXX - bye bro - XXXXXXXXXXXXXXXXX");
                             } else {
                                 Toast.makeText(SignupMoreDetails.this, "Sign up has not been succeed" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }

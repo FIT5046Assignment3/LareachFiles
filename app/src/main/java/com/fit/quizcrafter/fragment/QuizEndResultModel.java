@@ -1,5 +1,8 @@
 package com.fit.quizcrafter.fragment;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import com.fit.quizcrafter.databinding.FragmentQuizEndResultModelBinding;
+import com.fit.quizcrafter.report.BarChartFragment;
 import com.fit.quizcrafter.viewmodel.SharedViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -78,6 +82,14 @@ public class QuizEndResultModel extends Fragment {
             @Override
             public void onClick(View view) {
                 sendData();
+                Bundle args = new Bundle();
+                args.putInt("wrongMCQ", wrongMcq);
+                args.putInt("correctMCQ", correctMcq);
+                args.putInt("qns", writtenQuestions);
+
+
+
+
             }
         });
 

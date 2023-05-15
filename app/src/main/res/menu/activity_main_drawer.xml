@@ -16,10 +16,12 @@
             android:id="@+id/nav_create"
             android:icon="@drawable/ic_baseline_create_24"
             android:title="@string/menu_createquiz" />
+
         <item
-            android:id="@+id/nav_map"
-            android:icon="@drawable/ic_baseline_location_on_24"
-            android:title="@string/menu_map" />
+            android:id="@+id/nav_report"
+            android:icon="@drawable/ic_baseline_create_24"
+            android:title="@string/report_screen" />
+
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_baseline_logout_24"

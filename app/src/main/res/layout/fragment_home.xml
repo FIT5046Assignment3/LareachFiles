@@ -76,6 +76,12 @@
         android:layout_height="wrap_content"
         android:text = ""/>
 
+    <Button
+        android:id="@+id/goToprofile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go to profile"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,7 +92,7 @@
             android:id="@+id/recenquiz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Recent Quizzes"
+            android:text="Quiz collections"
             android:layout_weight="0.5"
             />
         <TextView
@@ -98,11 +104,41 @@
             />
     </LinearLayout>
 
-
-    <Button
-        android:id="@+id/goToprofile"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go to profile"/>
+        android:text="0 what is an anmial"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1 what is the most famouse people in math"
+        android:gravity = "center"
+       />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2 what is python"
+        android:gravity = "center"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3 what is java"
+        android:gravity = "center"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4 what is C"
+        android:gravity = "center"
+       />
+
+
+
 
 </LinearLayout>
