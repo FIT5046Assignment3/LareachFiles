@@ -46,20 +46,20 @@ public class QuizDetail extends Fragment {
         return root;
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        NavController navController = Navigation.findNavController(view);
-
-        Button btn = view.findViewById(R.id.launchQuizWelcomeBtn);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_nav_home_to_quizWelcomeFragment);
-            }
-        });
-    }
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//
+//        NavController navController = Navigation.findNavController(view);
+//
+//        Button btn = view.findViewById(R.id.launchQuizWelcomeBtn);
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                navController.navigate(R.id.action_quizDetail_to_nav_quizWelcome_fragment);
+//            }
+//        });
+//    }
 
     @Override
     public void onDestroyView() {

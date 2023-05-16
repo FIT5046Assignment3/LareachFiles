@@ -146,6 +146,8 @@ public class QuizWelcomeFragment extends Fragment{
             }
         }
 
+        replaceFragment(new QuizTitleFragment());
+
         gameplay();
 
         model.getIsCorrect().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
@@ -232,7 +234,8 @@ public class QuizWelcomeFragment extends Fragment{
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_quizWelcomeFragment_to_nav_home);
+                //navController.navigate(R.id.action_quizWelcomeFragment_to_nav_home);
+                Navigation.findNavController(view).navigate(R.id.action_quizWelcomeFragment_to_nav_home);
 
             }
         });
@@ -265,14 +268,6 @@ public class QuizWelcomeFragment extends Fragment{
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-
-
-            //answers --> for loop into each options
-        //
-        //question --> question
-        //
-        //correct_answers
-
     });
     }
 

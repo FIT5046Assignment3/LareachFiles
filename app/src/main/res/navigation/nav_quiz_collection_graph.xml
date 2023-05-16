@@ -69,8 +69,4 @@
             android:id="@+id/action_nav_quizWelcome_fragment_to_quizItemFragment"
             app:destination="@id/quizItemFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.fit.quizcrafter.ui.home.HomeFragment"
-        android:label="HomeFragment" />
 </navigation>

@@ -1,5 +1,5 @@
 <resources>
-<!--    login -->
+    <!--    login -->
     <string name="app_name">
        <font color="#4169E1">quiz crafters</font>
     </string>
@@ -22,7 +22,7 @@
 
     </string-array>
 
-<!--    -->
+    <!--    -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -45,7 +45,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-<!--    user info-->
+    <!--    user info-->
     <string name="user_id">user_id</string>
 
 
@@ -56,8 +56,8 @@
     <string name="end_date">End Date:</string>
 
     <string-array name="chart_options">
-    <item>Bar Chart</item>
-    <item>Pie Chart</item>
+        <item>Bar Chart</item>
+        <item>Pie Chart</item>
     </string-array>
 
 </resources>

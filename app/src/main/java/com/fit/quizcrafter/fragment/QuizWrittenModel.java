@@ -25,8 +25,6 @@ public class QuizWrittenModel extends Fragment {
     String currentCorrectAnswer;
     String currentUserAnswer;
 
-    View view;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
