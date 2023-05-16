@@ -14,6 +14,7 @@ import androidx.fragment.app.DialogFragment;
 
 
 import com.fit.quizcrafter.databinding.FragmentAddQuestionBinding;
+import com.fit.quizcrafter.domain.Correct_answers;
 import com.fit.quizcrafter.domain.Question;
 
 
@@ -54,15 +55,6 @@ public class AddQuestionDialogFragment extends DialogFragment {
 
                                 CheckBox checkBox = binding.mulcheckBox;
                                 Boolean mul =  checkBox.isChecked();
-
-                                if(mul)
-                                {
-                                    question.setMultiple_correct_answers("true");
-                                }
-                                else
-                                {
-                                    question.setMultiple_correct_answers("false");
-                                }
 //              set option
                                 editText = binding.OptioneditText1;
                                 question.getAnswers().setAnswer_a(editText.getText().toString());
@@ -81,35 +73,46 @@ public class AddQuestionDialogFragment extends DialogFragment {
 //                is multiple
                                 if(mul)
                                 {
-                                    for(String answer: editText.getText().toString().split(","))
+                                    System.out.println(question);
+                                    question.setMultiple_correct_answers("true");
+                                    editText = binding.AnswereditText;
+                                    System.out.println(question);
+                                    String[] answers = editText.getText().toString().split(",");
+                                    Correct_answers correct_answers = new Correct_answers();
+                                    for(String answer: answers)
                                     {
                                         System.out.println(answer);
                                         switch (answer)
                                         {
                                             case "1":
-                                                question.getCorrect_answers().setAnswer_a_correct("true");
+                                                correct_answers.setAnswer_a_correct("true");
                                                 break;
                                             case "2":
-                                                question.getCorrect_answers().setAnswer_b_correct("true");
+                                                correct_answers.setAnswer_b_correct("true");
                                                 break;
                                             case "3":
-                                                question.getCorrect_answers().setAnswer_b_correct("true");
+                                                correct_answers.setAnswer_b_correct("true");
                                                 break;
                                             case "4":
-                                                question.getCorrect_answers().setAnswer_b_correct("true");
+                                                correct_answers.setAnswer_b_correct("true");
                                                 break;
                                             case "5":
-                                                question.getCorrect_answers().setAnswer_b_correct("true");
+                                                correct_answers.setAnswer_b_correct("true");
                                                 break;
+                                            default:
+                                                System.out.println("error ");
 
                                         }
                                     }
+                                    question.setCorrect_answers(correct_answers);
                                 }
                                 else
                                 {
+                                    question.setMultiple_correct_answers("false");
                                     editText = binding.AnswereditText;
                                     question.setCorrect_answer(editText.getText().toString());
                                 }
+
 //                add question function
                                 getAddQuestionListener().onAddInputComplete(question);
                             }

@@ -18,31 +18,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.List;
 
 public class FirebaseApi {
+
     public static DatabaseReference mDatabase;
 
     public static String userId = "quizId-1";
     public static String collectionName = "create-quiz";
-
-    public static void initData(Context context)
-    {
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        new ApiQuiz().getQuiz(context, "10", null, null, new VolleyCallback() {
-            @Override
-            public void onSuccess(String result) {
-                Quiz quiz = parseQuiz(result);
-                mDatabase.child(collectionName).child(userId).child("1").setValue(quiz);
-            }
-        });
-        new ApiQuiz().getQuiz(context, "1", null, null, new VolleyCallback() {
-            @Override
-            public void onSuccess(String result) {
-                Quiz quiz = parseQuiz(result);
-                mDatabase.child(collectionName).child(userId).child("2").setValue(quiz);
-            }
-        });
-
-    }
-
 
     public static void addQuiz(Quiz quiz,String userId, OnCompleteListener onCompleteListener)
     {
@@ -56,8 +36,6 @@ public class FirebaseApi {
 
     }
 
-
-
     public static void  getQuizByuserId(String userId, OnCompleteListener onCompleteListener)
     {
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -70,9 +48,7 @@ public class FirebaseApi {
         Task task= mDatabase.child(collectionName).child(userId).child("2").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
-                System.out.println("/////////////////////////////////");
                 System.out.println(task.getResult().getValue(Quiz.class));
-                System.out.println("end");
             }
         });
     }

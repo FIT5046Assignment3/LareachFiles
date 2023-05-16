@@ -39,7 +39,7 @@
     <string name="menu_createquiz">Create quiz</string>
     <string name="menu_map">Check my map</string>
     <string name="menu_logout">Logout</string>
-    <string name="report_screen">report</string>
+    <string name="report_screen">Report</string>
 
     <string name="quiz_checkbok">multiple</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -50,21 +50,14 @@
 
 
     /for report
-<string name="start_date">Start Date:</string>
-<string name="chart_type">Chart Type:</string>
-<string name="end_date">End Date:</string>
 
-<string-array name="chart_options">
-<item>Bar Chart</item>
-<item>Pie Chart</item>
-</string-array>
+    <string name="chart_type">Chart Type:</string>
+    <string name="start_date">Start Date:</string>
+    <string name="end_date">End Date:</string>
 
-<string-array name="start_date_array">
-<item>test 01/01/2023</item>
-</string-array>
-
-<string-array name="end_date_array">
-<item>test 07/01/2023</item>
-</string-array>
+    <string-array name="chart_options">
+    <item>Bar Chart</item>
+    <item>Pie Chart</item>
+    </string-array>
 
 </resources>

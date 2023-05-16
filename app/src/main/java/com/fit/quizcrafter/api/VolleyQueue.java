@@ -10,6 +10,7 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 
 public class VolleyQueue {
+
     private static VolleyQueue instance;
     private RequestQueue requestQueue;
     private ImageLoader imageLoader;

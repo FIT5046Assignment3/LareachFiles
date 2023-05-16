@@ -23,6 +23,7 @@ public class Quiz {
     private List<Question> questionList;
     public String title;
     private String description = " quiz desciption";
+    private String key;
 
     public Quiz() {
         title = "titile" + String.valueOf(new Random().nextInt());
@@ -80,13 +81,22 @@ public class Quiz {
         this.id = id;
     }
 
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
     @Override
     public String toString() {
         return "Quiz{" +
-                "questionList=" + questionList +
+                "id=" + id +
+                ", questionList=" + questionList +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", id='" + id + '\'' +
+                ", key='" + key + '\'' +
                 '}';
     }
 }

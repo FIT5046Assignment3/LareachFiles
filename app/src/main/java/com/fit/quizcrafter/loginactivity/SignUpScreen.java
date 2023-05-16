@@ -15,9 +15,6 @@ import com.fit.quizcrafter.R;
 
 public class SignUpScreen extends AppCompatActivity {
 
-
-
-
     private EditText emailinput,passwordinput,confrimpasswordinput;
 
     private static String getEmail;
@@ -31,24 +28,17 @@ public class SignUpScreen extends AppCompatActivity {
     public String getPassword;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up);
 
-
-
         emailinput = findViewById(R.id.emailinput);
         passwordinput = findViewById(R.id.passwordinput);
         confrimpasswordinput = findViewById(R.id.conirmpasswordinput);
         gotologin = findViewById(R.id.gotologin);
         continueButton = findViewById(R.id.continueButton);
-
-
-
 
         gotologin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,8 +54,6 @@ public class SignUpScreen extends AppCompatActivity {
                 String email_input =emailinput.getText().toString();
                 String password_input = passwordinput.getText().toString();
                 String confrim_password_input =  confrimpasswordinput.getText().toString();
-
-
 
                 if(email_input.isEmpty())
                 {
@@ -85,23 +73,18 @@ public class SignUpScreen extends AppCompatActivity {
                 }
                 else
                 {
-
-
                     //store email and password into authentication
-
                                 Intent intentforcontinueScreen = new Intent(SignUpScreen.this, SignupMoreDetails.class);
                                 intentforcontinueScreen.putExtra("Email",email_input);
                                 intentforcontinueScreen.putExtra("password",password_input);
                                 startActivity(intentforcontinueScreen);
-                            }
-
-
-                        }
-                    });
-
-
                 }
+
             }
+        });
+
+    }
+}
 
 
 

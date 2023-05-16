@@ -35,40 +35,19 @@
         android:textSize = "40sp"/>
 
 
-
-
-
+    <Button
+        android:id="@+id/LaunchQuizFromHome"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="150dp"
+        android:textSize="30dp"
+        android:text="RANDOM QUIZ" />
 
     <TextView
         android:id="@+id/emptytextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text = ""/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:background="@drawable/draw_polygon_shape"
-        >
-        <TextView
-            android:id="@+id/random"
-            android:shape = "rectangle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="random"
-            android:textSize = "20sp"/>
-
-        <TextView
-            android:id="@+id/quiz"
-            android:shape = "rectangle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quiz"
-            android:textSize = "20sp"/>
-
-    </LinearLayout>
 
     <TextView
         android:id="@+id/emptytextViewOne"

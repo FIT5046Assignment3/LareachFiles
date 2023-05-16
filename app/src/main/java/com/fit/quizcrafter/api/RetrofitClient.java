@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClient {
     private static Retrofit retrofit;
     public static final String BASE_URL = "http://api.weatherstack.com/";
-    public static final String access_key = "6b013cf4b70f9474c7c7691a49d57323";
+    public static final String access_key = "2fe6c872b1d5d66bdefc5d9dab738c7d";
 
     public static RetrofitWeather getRetrofitService(){
         retrofit=new Retrofit.Builder()

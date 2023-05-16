@@ -15,15 +15,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.fit.quizcrafter.QuizWoker;
 import com.fit.quizcrafter.R;
 import com.fit.quizcrafter.databinding.FragmentCreateQuizBinding;
 import com.fit.quizcrafter.domain.Question;
 
 import com.fit.quizcrafter.domain.Quiz;
+import com.fit.quizcrafter.domain.User;
 import com.fit.quizcrafter.ui.createquiz.recyclelist.QuestionListFragment;
 import com.fit.quizcrafter.ui.createquiz.recyclelist.QuestionViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+
+import java.util.UUID;
 
 
 public class CreateQuizFragment extends Fragment  {
@@ -55,21 +59,17 @@ public class CreateQuizFragment extends Fragment  {
         binding.Addquizbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Quiz quiz = new Quiz();
-                System.out.println("add quiz");
                 EditText text = binding.quizTitle;
                 quiz.setTitle(text.getText().toString());
-                quiz.setQuestionList(viewModel.getQuizs().getValue());
+
                 quiz.setDescription(binding.quizDescription.getText().toString());
+                quiz.setQuestionList(viewModel.getQuizs().getValue());
+                quiz.setKey(UUID.randomUUID().toString());
 
+                QuizWoker.quizList.add(quiz);
 
-                addQuiz(quiz, String.valueOf(R.string.user_id), new OnCompleteListener() {
-                    @Override
-                    public void onComplete(@NonNull Task task) {
-                        Toast.makeText(getContext(),"Complete",Toast.LENGTH_LONG).show();
-                        viewModel.refresh();
-                    }
-                });
             }
         });
         return root;

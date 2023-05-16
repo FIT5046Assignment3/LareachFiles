@@ -232,7 +232,7 @@ public class QuizWelcomeFragment extends Fragment{
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_nav_quizWelcome_fragment_to_quizItemFragment);
+                navController.navigate(R.id.action_quizWelcomeFragment_to_nav_home);
 
             }
         });

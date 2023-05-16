@@ -21,14 +21,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class loginScreen extends AppCompatActivity {
 
-
-
     private FirebaseAuth firebaseAuth;
 
-
     private TextView register;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +55,7 @@ public class loginScreen extends AppCompatActivity {
                                                                        Intent intentforHomeScreen = new Intent(loginScreen.this, MainActivity.class);
 
                                                                        startActivity(intentforHomeScreen);
-                                                                       finish();
+
                                                                    }
                                                                }).addOnFailureListener(new OnFailureListener() {
                                                                    @Override
@@ -79,18 +74,12 @@ public class loginScreen extends AppCompatActivity {
                                            }
                                        });
 
-
-
-
-
-
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentforSignupScreen = new Intent(loginScreen.this,SignUpScreen.class);
                 startActivity(intentforSignupScreen);
             }
-
             });
         }
 

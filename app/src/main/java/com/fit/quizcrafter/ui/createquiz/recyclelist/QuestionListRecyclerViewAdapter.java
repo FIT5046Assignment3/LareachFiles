@@ -44,11 +44,12 @@ public class QuestionListRecyclerViewAdapter extends RecyclerView.Adapter<Questi
                 notifyDataSetChanged();
             }
         });
-//       like  delete it
+//       on quizdetail fragment ,
         if(questionViewModel.isFlag())
         {
             holder.binding.ivItemDelete.setVisibility(View.GONE);
         }
+//        go to view question
 
     }
 

@@ -24,8 +24,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class QuizEndResultModel extends Fragment {
 
@@ -37,8 +41,7 @@ public class QuizEndResultModel extends Fragment {
     private Button sendDataBtn;
 
     HashMap<String,Integer> hashMap = new HashMap<>();
-
-
+    HashMap<String,String> hashMapDate = new HashMap<>();
 
     private FragmentQuizEndResultModelBinding binding;
 
@@ -58,6 +61,11 @@ public class QuizEndResultModel extends Fragment {
         model.getResults().observe(getViewLifecycleOwner(), new Observer<ArrayList<Integer>>() {
             @Override
             public void onChanged(ArrayList<Integer> data) {
+
+                Date date = new Date();
+                SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+                String completedQuizDate = df.format(date);
+
                 // Update the TextView with the new count.
                 System.out.println(data.get(0));
                 binding.correctResultTextNumber.setText(String.valueOf(data.get(0)));
@@ -68,12 +76,10 @@ public class QuizEndResultModel extends Fragment {
                 wrongMcq = data.get((1));
                 writtenQuestions = data.get(2);
 
-                hashMap.put("correctMCQ", correctMcq);
+                hashMap.put("CorrectMcq", correctMcq);
                 hashMap.put("WrongMcq",wrongMcq);
-                hashMap.put("writethequestions",writtenQuestions);
-
-
-
+                hashMap.put("Written",writtenQuestions);
+                hashMapDate.put("Date", completedQuizDate);
             }
         });
 
@@ -82,14 +88,6 @@ public class QuizEndResultModel extends Fragment {
             @Override
             public void onClick(View view) {
                 sendData();
-                Bundle args = new Bundle();
-                args.putInt("wrongMCQ", wrongMcq);
-                args.putInt("correctMCQ", correctMcq);
-                args.putInt("qns", writtenQuestions);
-
-
-
-
             }
         });
 
@@ -98,15 +96,13 @@ public class QuizEndResultModel extends Fragment {
     }
 
     public void sendData(){
-
-
-
         firebaseAuth = FirebaseAuth.getInstance();
 
         FirebaseUser firebase = firebaseAuth.getCurrentUser();
         String Uid = firebase.getUid();
 
         DatabaseReference databaseReference = firebaseDatabase.getReference("Result of quiz");
-        databaseReference.child(Uid).setValue(hashMap);
+        //databaseReference.child(Uid).setValue(hashMap);
+        databaseReference.child(Uid).child(String.valueOf(hashMapDate)).setValue(hashMap);
     }
 }

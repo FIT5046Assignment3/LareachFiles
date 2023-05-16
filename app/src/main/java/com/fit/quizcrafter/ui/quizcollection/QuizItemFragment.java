@@ -22,13 +22,14 @@ import com.fit.quizcrafter.ui.createquiz.recyclelist.QuestionViewModel;
 import com.google.gson.Gson;
 
 /**
- * A simple {@link Fragment} subclass.
+
  * Use the {@link QuizItemFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class QuizItemFragment extends Fragment {
 
     private QuizCollectionViewModel viewModel ;
+
     public QuizItemFragment() {
         // Required empty public constructor
     }

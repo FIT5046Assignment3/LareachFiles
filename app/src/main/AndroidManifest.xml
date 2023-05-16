@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <!-- allow intnet -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -20,11 +21,11 @@
         android:theme="@style/Theme.QuizCrafter"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+<!--        api key for google map-->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDV3f901NBO1BS_ESB0YRvapJYA5dkvjlw" />
-
-
+<!--        google map activity-->
         <activity
             android:name=".ui.map.MapActivity"
             android:exported="false">
@@ -32,7 +33,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
+<!--the main activity for the projectt-->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -47,11 +48,11 @@
 <!--login tony activity-->
         <activity android:name=".loginactivity.loginScreen"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".loginactivity.SignUpScreen"></activity>
         <activity android:name=".loginactivity.SignupMoreDetails"></activity>
@@ -59,7 +60,6 @@
         <activity android:name=".loginactivity.HomeScreenActivity" />
         <activity android:name=".loginactivity.accountscreen" />
         <activity android:name=".loginactivity.changePasswordAndAccountNameScreen" />
-
 
     </application>
 

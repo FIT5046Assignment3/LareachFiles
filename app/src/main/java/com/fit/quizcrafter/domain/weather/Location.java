@@ -19,7 +19,7 @@ public class Location {
     private String lon;
     private String timezone_id;
     private String localtime;
-    private long localtime_epoch;
+    private double localtime_epoch;
     private String utc_offset;
     public void setName(String name) {
          this.name = name;
@@ -70,10 +70,10 @@ public class Location {
          return localtime;
      }
 
-    public void setLocaltime_epoch(long localtime_epoch) {
+    public void setLocaltime_epoch(double localtime_epoch) {
          this.localtime_epoch = localtime_epoch;
      }
-     public long getLocaltime_epoch() {
+     public double getLocaltime_epoch() {
          return localtime_epoch;
      }
 

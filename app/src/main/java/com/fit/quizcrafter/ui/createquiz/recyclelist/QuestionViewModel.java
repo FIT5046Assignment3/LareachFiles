@@ -29,27 +29,10 @@ public class QuestionViewModel extends ViewModel {
 //          get data from data manager layers, init data
             questionList = new MutableLiveData<>();
             questionList.setValue(new ArrayList<>());
-            loadQuestions();
         }
         return questionList;
     }
-    private void loadQuestions() {
-        // Do an asynchronous operation to fetch users.
-        //        load data from firebase
-//        getQuizByuserId(userId, new OnCompleteListener<DataSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DataSnapshot> task) {
-//                List<Quiz> quizs = new ArrayList<>();
-//                System.out.println("/////////////////////////////////");
-//                for(DataSnapshot dataSnapshot: task.getResult().getChildren())
-//                {
-//                    Quiz quiz =  dataSnapshot.getValue(Quiz.class);
-//                    quizs.add(quiz);
-//                }
-//                quizList.setValue(quizs);
-//            }
-//        });
-    }
+
 
     public void setData(List<Question> questionList1)
     {

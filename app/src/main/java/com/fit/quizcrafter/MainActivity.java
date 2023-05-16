@@ -13,13 +13,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.toolbox.ImageLoader;
-import com.fit.quizcrafter.api.FirebaseApi;
 import com.fit.quizcrafter.api.RetrofitWeather;
 import com.fit.quizcrafter.api.VolleyQueue;
 
+import com.fit.quizcrafter.domain.User;
 import com.fit.quizcrafter.domain.weather.Weather;
 import com.fit.quizcrafter.loginactivity.CreateAccountClass;
-import com.fit.quizcrafter.loginactivity.HomeScreenActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -31,6 +30,9 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
+import androidx.work.WorkRequest;
 
 import com.fit.quizcrafter.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
@@ -43,6 +45,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
 
+import java.util.ArrayList;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -50,6 +54,7 @@ import retrofit2.Callback;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+
     private ActivityMainBinding binding;
 
     private FirebaseUser fireBaseUser;
@@ -67,9 +72,6 @@ public class MainActivity extends AppCompatActivity {
     private String EmailPart;
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,19 +86,26 @@ public class MainActivity extends AppCompatActivity {
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//excute upload data work
+                WorkRequest uploadWorkRequest =
+                        new OneTimeWorkRequest.Builder(QuizWoker.class).build();
+                WorkManager
+                        .getInstance(getApplicationContext())
+                        .enqueue(uploadWorkRequest);
+                QuizWoker.quizList = new ArrayList<>();
+                Snackbar.make(view, "Reveive upload function", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
+
             }
         });
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
 
-        //used chatgpt for fix
         View headerView = navigationView.getHeaderView(0);
         textView = headerView.findViewById(R.id.user_name);
         textViewForEmail  = headerView.findViewById(R.id.userEmail);
-
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
 
@@ -108,46 +117,43 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-
-//        load weather image
-        RetrofitWeather retrofitWeather = getRetrofitService();
-        Call<ResponseBody> callAsync =
-                retrofitWeather.getWeatherbyLocation(access_key,"melbourne");
-        //makes an async request & invokes callback methods when the response returns
-        callAsync.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {
-                if (response.isSuccessful()) {
-                    try {
-                        Gson gson = new Gson();
-                        System.out.println("/////////////////////");
-                        String str = response.body().string().toString();
-                        Weather weather = gson.fromJson(str, Weather.class);
-                        System.out.println(weather.getCurrent());
-                        if(weather.getCurrent() != null)
-                        {
-                            String url = weather.getCurrent().getWeather_icons().get(0);
-                            ImageLoader imageLoader = VolleyQueue.getInstance(getApplicationContext()).getImageLoader();
-                            ImageLoader.ImageListener listener = ImageLoader.getImageListener(findViewById(R.id.weather_imageView),
-                                    R.drawable.ic_launcher_background,
-                                    R.drawable.ic_launcher_foreground);
-                            imageLoader.get(url, listener);
-                        }
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-                else {
-                    Log.i("Error ","Response failed");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                System.out.println("error");
-            }
-        });
+        //load weather image
+//        RetrofitWeather retrofitWeather = getRetrofitService();
+//        Call<ResponseBody> callAsync =
+//                retrofitWeather.getWeatherbyLocation(access_key,"melbourne");
+//        //makes an async request & invokes callback methods when the response returns
+//        callAsync.enqueue(new Callback<ResponseBody>() {
+//            @Override
+//            public void onResponse(Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {
+//                if (response.isSuccessful()) {
+//                    try {
+//                        Gson gson = new Gson();
+//                        String str = response.body().string().toString();
+//                        Weather weather = gson.fromJson(str, Weather.class);
+//                        System.out.println(weather.getCurrent());
+//                        if(weather.getCurrent() != null)
+//                        {
+//                            String url = weather.getCurrent().getWeather_icons().get(0);
+//                            ImageLoader imageLoader = VolleyQueue.getInstance(getApplicationContext()).getImageLoader();
+//                            ImageLoader.ImageListener listener = ImageLoader.getImageListener(findViewById(R.id.weather_imageView),
+//                                    R.drawable.ic_launcher_background,
+//                                    R.drawable.ic_launcher_foreground);
+//                            imageLoader.get(url, listener);
+//                        }
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//                else {
+//                    Log.i("Error ","Response failed");
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ResponseBody> call, Throwable t) {
+//                System.out.println("----------------------Fail to ge Weather");
+//            }
+//        });
 
     }
 //for menu
@@ -166,8 +172,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void ShowTheAccountName(FirebaseUser fireBaseUser) {
-        UserID = fireBaseUser.getUid();
 
+        UserID = fireBaseUser.getUid();
         //get the user reference
         databaseReference = FirebaseDatabase.getInstance().getReference("Data entry for create account");
         databaseReference.child(UserID).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -179,11 +185,13 @@ public class MainActivity extends AppCompatActivity {
                     //get username
                     useForAccountName = createAccountClass.accountName;
                     textView.setText(useForAccountName);
-
                     //get email
                     EmailPart = createAccountClass.emailAddress;
                     textViewForEmail.setText(EmailPart);
-
+//                    init all the user attr
+                    User.name=useForAccountName;
+                    User.email=EmailPart;
+                    User.user_id = UserID;
                 }
             }
 
@@ -199,15 +207,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         firebaseAuth = FirebaseAuth.getInstance();
-
         fireBaseUser = firebaseAuth.getCurrentUser();
         if(fireBaseUser == null)
         {
             Toast.makeText(getApplicationContext(), "user details is not on database", Toast.LENGTH_LONG).show();
         }
-        else{
+        else
+        {
             ShowTheAccountName(fireBaseUser);
         }
-        ShowTheAccountName(fireBaseUser);
     }
 }

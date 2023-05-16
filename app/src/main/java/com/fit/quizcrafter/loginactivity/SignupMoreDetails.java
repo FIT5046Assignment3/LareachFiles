@@ -49,14 +49,9 @@ public class SignupMoreDetails extends AppCompatActivity {
 
     DatePickerDialog.OnDateSetListener setListener;
 
-
-
     private FirebaseAuth firebaseAuth;
 
     private FirebaseDatabase firebaseDatabase =FirebaseDatabase.getInstance();
-
-
-
 
 
     @Override
@@ -65,7 +60,6 @@ public class SignupMoreDetails extends AppCompatActivity {
         setContentView(R.layout.signup_more);
 
         gotologin = findViewById(R.id.gotologintu);
-
         accountName = findViewById(R.id.enterAccountname);
         SignUP = findViewById(R.id.SignUP);
         AddressOne = findViewById(R.id.AddressOne);
@@ -77,13 +71,6 @@ public class SignupMoreDetails extends AppCompatActivity {
         stateSpinner = findViewById(R.id.statespinner);
         firebaseAuth = FirebaseAuth.getInstance();
 
-
-
-
-
-
-
-
         //calendar
         datePicker = findViewById(R.id.datePicker);
         DateOfBirth = findViewById(R.id.DateOfBirth);
@@ -93,60 +80,49 @@ public class SignupMoreDetails extends AppCompatActivity {
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-
-//        gotologin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intentforLoginScreen = new Intent(MainActivity.this,loginScreen.class);
-//                startActivity(intentforLoginScreen);
-//            }
-//        });
-
-
-
-                datePicker.setOnClickListener(new View.OnClickListener() {
+        datePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                SignupMoreDetails.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
-                    public void onClick(View view) {
-                        DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        SignupMoreDetails.this, new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int month, int day) {
-                                month = month + 1;
-                                String date = day + "/" + month + "/" + year;
-                                datePicker.setText(date);
-                            }
-
-
-                        },year,month,day);
-                        datePickerDialog.show();
-                    }
-                });
-
-
-                //spinner for gender
-                Spinner spinner = findViewById(R.id.genderspinner);
-                ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(),R.array.genderarray, android.R.layout.simple_spinner_item);
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                spinner.setAdapter(adapter);
-
-                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        Toast.makeText(SignupMoreDetails.this, "", Toast.LENGTH_SHORT).show();
+                    public void onDateSet(DatePicker view, int year, int month, int day) {
+                        month = month + 1;
+                        String date = day + "/" + month + "/" + year;
+                        datePicker.setText(date);
                     }
 
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
 
-                    }
-                });
+                },year,month,day);
+                datePickerDialog.show();
+            }
+        });
 
 
-                //spinner for state(postal)
-                Spinner spinnersate = findViewById(R.id.statespinner);
-                ArrayAdapter<CharSequence> stateadpater = ArrayAdapter.createFromResource(getApplicationContext(),R.array.statearray,android.R.layout.simple_spinner_item);
-                stateadpater.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                spinnersate.setAdapter(stateadpater);
+        //spinner for gender
+        Spinner spinner = findViewById(R.id.genderspinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(),R.array.genderarray, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(SignupMoreDetails.this, "", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+        //spinner for state(postal)
+        Spinner spinnersate = findViewById(R.id.statespinner);
+        ArrayAdapter<CharSequence> stateadpater = ArrayAdapter.createFromResource(getApplicationContext(),R.array.statearray,android.R.layout.simple_spinner_item);
+        stateadpater.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnersate.setAdapter(stateadpater);
 
         spinnersate.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
@@ -160,18 +136,13 @@ public class SignupMoreDetails extends AppCompatActivity {
                     }
                 });
 
-
-
         SignUP.setOnClickListener(new View.OnClickListener() {
-
 
             @Override
             public void onClick(View view) {
 
-
                 String EmailInput = getIntent().getStringExtra("Email");
                 String passWordInput = getIntent().getStringExtra("password");
-
                 String account_name = accountName.getText().toString();
                 String date_picker = datePicker.getText().toString();
                 String Address_One = AddressOne.getText().toString();
@@ -181,9 +152,7 @@ public class SignupMoreDetails extends AppCompatActivity {
                 String zip_input = zipinput.getText().toString();
                 String country_input = countryinput.getText().toString();
                 String spinner_gender = spinnergender.getSelectedItem().toString();
-
                 CreateAccountClass createAccountClass = new CreateAccountClass(account_name, date_picker, Address_One, Address_two, city_input, state_spinner, zip_input, country_input, spinner_gender, EmailInput, passWordInput);
-
 
                 if (accountName.length() == 0) {
                     accountName.setError("account name is required");
@@ -212,11 +181,11 @@ public class SignupMoreDetails extends AppCompatActivity {
 
 
                                 Toast.makeText(SignupMoreDetails.this, "Sign up successful, both email and address are uploaded to realtime database and authentication" , Toast.LENGTH_SHORT).show();
-                                System.out.println("XXXXXXXXXXXXX - sup bro - XXXXXXXXXXXXXXXXX");
+
                                 Intent intentforHomeScreen = new Intent(SignupMoreDetails.this, MainActivity.class);
                                 intentforHomeScreen.putExtra("AccountName",account_name);
                                 startActivity(intentforHomeScreen);
-                                System.out.println("XXXXXXXXXXXXX - bye bro - XXXXXXXXXXXXXXXXX");
+                                finish();
                             } else {
                                 Toast.makeText(SignupMoreDetails.this, "Sign up has not been succeed" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
@@ -227,7 +196,6 @@ public class SignupMoreDetails extends AppCompatActivity {
 
                 }
             }
-
 
         });
     }
